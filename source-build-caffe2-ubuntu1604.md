@@ -23,9 +23,9 @@ cmake .. -DPYTHON_EXECUTABLE=~/anaconda3/envs/caffe2_envs/bin/python -DPYTHON_LI
 ```
 Only in this way, caffe2 will be built by the environment's python-3.6 instead of the system python-2.7.
 
-After biult with caffe2-downloaded `protobuf`, write the `~/caffe2/build/lib` to `~/.bashrc` as `PYTHONPATH`
+After biult with caffe2-downloaded `protobuf`, write the `~/caffe2/build` to `~/.bashrc` as `PYTHONPATH`
 ```
-export PYTHONPATH=~/caffe2/build/lib:$PYTHONPATH
+export PYTHONPATH=~/caffe2/build:$PYTHONPATH
 ```
  
 Then conda install the same version `protobuf` as `~/caffe2/build/bin/protoc` has, 
