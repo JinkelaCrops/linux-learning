@@ -11,6 +11,16 @@ By the way, you could also install `gflags` from source if you have to: [caffe2-
 When using a conda environment, follow the direction of [caffe2-official-anaconda-custom](https://caffe2.ai/docs/getting-started.html?platform=mac&configuration=compile#custom-anaconda-install), 
 for no conflicts, make sure that no `protobuf`, `glog` and `gflags` under your conda environment, as the program would download by itself. 
 
+While building with python-3.6, you may find `protobuf` error because system `protobuf` has version 2.6.1, which is not suitable for python-3.6. To avoid using system `protobuf`, you may upgrade your system `protobuf` by [maarten-fonville-protobuf](https://launchpad.net/~maarten-fonville/+archive/ubuntu/protobuf) and then caffe2 can never find system `protobuf`. However, if you install `gflags` from source, caffe2 can find it. This is freaky. Maybe caffe2 can also find `protobuf` after installing `protobuf` from source.
+```
+$ whereis glog
+glog:
+$ whereis gflags
+gflags: /usr/include/gflags
+$ whereis protoc
+protoc: /usr/bin/protoc /usr/share/man/man1/protoc.1.gz
+```
+
 The anaconda path should stay above the system python path in `~/.bashrc`, for the sake of not overlapping the system python-2.7 by the anaconda python-3.6. You should find the following codes in your `~/.bashrc`
 ```
 export PATH="~/anaconda3/bin:$PATH"
